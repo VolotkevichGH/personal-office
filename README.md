@@ -62,14 +62,14 @@ ___
 ###LOGIN
 
 | Task | Method | Resource | Request Parameters |
-|:----:|:------:|:--------:|:-------:|
+|:----:|:------:|:--------:|:------------------:|
 | Авторизация | GET | http://localhost:8080/login | |
 
 
 ###Student
 
 | Task | Method | Resource | Request Parameters |
-|:----:|:------:|:--------:|:-------:|
+|:----:|:------:|:--------:|:------------------:|
 | Личный профиль студента | GET | http://localhost:8080/student/profile | {"user": user} |
 | Редактирование профиля | GET | http://localhost:8080/student/edit | {"user": user} |
 | Редактирование профиля | POST | http://localhost:8080/student/edit | {"username":string, "email":string, "oldpassword":string, "password":string} |
@@ -78,26 +78,26 @@ ___
 ###Curator
 
 | Task | Method | Resource | Request Parameters |
-|:----:|:------:|:--------:|:-------:|
-| Личный профиль куратора | GET | http://localhost:8080/curator/profile | Авторизовать пользователя, Список&усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;lt;Пользователь> |
-| Редактирование профиля | GET | http://localhost:8080/curator/edit | {"userID":number} |
+|:----:|:------:|:--------:|:------------------:|
+| Личный профиль куратора | GET | http://localhost:8080/curator/profile | Authorize user, List<User> |
+| Редактирование профиля | GET | http://localhost:8080/curator/edit | Authorize user |
 | Редактирование профиля | POST | http://localhost:8080/curator/edit | {"username":string, "email":string, "oldpassword":string, "password":string} |
 
 
 ###Administration
 
 | Task | Method | Resource | Request Parameters |
-|:----:|:------:|:--------:|:-------:|
-| Админ панель | GET | http://localhost:8080/admin | {"пользователей": Список&усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;lt;Пользователь>} |
+|:----:|:------:|:--------:|:------------------:|
+| Админ панель | GET | http://localhost:8080/admin | {"users": List<User>} |
 | Добавление админа | POST | http://localhost:8080/admin/giveadmin/{user} | {"userID": number} |
 | Добавление 1 студента | GET | http://localhost:8080/admin/givestudent/{user} | {"userID": number, "studentname": string, "studentsurname": string} |
-| Добавление 1 студента | POST | http://localhost:8080/admin/givestudent/{user} | {"userID": number, "curatorname": string, "curatorsurname": string}, "specialization": string, "course": string, "faculty": string, "nameGroup": string} |
+| Добавление 1 студента | POST | http://localhost:8080/admin/givestudent/{user} | {"userID": number, "curatorname": string, "curatorsurname": string}, "specialization": string, "course": string, "faculty": string, "nameGroup": string,|
 | Добавление куратора | GET | http://localhost:8080/admin/givecur/{user} | {"userID": number} |
-| Добавление куратора | POST | http://localhost:8080/admin/givecur/{user} | {"userID": number, "lesson": string, "faculty": string, "nameGroup": string} |
+| Добавление куратора | POST | http://localhost:8080/admin/givecur/{user} | {"userID": number, "lesson": string, "faculty": string, "nameGroup": string|
 | Удаление аккаунта | POST | http://localhost:8080/admin/delete/{user} | {"userID": number} |
 | Добавление списка пользователей | GET | http://localhost:8080/admin/addstudents | - |
 | Добавление списка пользователей | POST | http://localhost:8080/admin/addstudents | {"students": string} |
-| Получение логина и пароля новых пользователей без шифра | GET | http://localhost:8080/admin/students/data | {"строитель": список} |
+| Получение логина и пароля новых пользователей без шифра | GET | http://localhost:8080/admin/students/data | "builder": list<string> |
 | Получение логина и пароля новых пользователей без шифра | POST | http://localhost:8080/admin/students/data |  |
 
 ___
