@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/}">Международный университет МИТСО</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</nav>
+<br /><br />
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-center">Форма заполнения студента</h2>
+                    <h3 class="text-center" th:text="${studentName} + ' ' + ${studentSurname}"/>
+                </div>
+                <div class="card-body">
+                    <form
+                            method="post"
+                            role="form"
+                            th:action="'/admin/givestudent/' + ${user.id}"
+                            class="form-horizontal"
+                    >
+                        <div class="form-group mb-3">
+                            <label class="control-label">Курс</label>
+                            <input
+                                    type="text"
+                                    id="course"
+                                    name="course"
+                                    class="form-control"
+                                    placeholder="Введите курс"
+                            />
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="control-label">Факультет</label>
+                            <input
+                                    type="text"
+                                    id="faculty"
+                                    name="faculty"
+                                    class="form-control"
+                                    placeholder="Введите факультет"
+                            />
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="control-label">Специальность</label>
+                            <input
+                                    type="text"
+                                    id="specialization"
+                                    name="specialization"
+                                    class="form-control"
+                                    placeholder="Введите специальность"
+                            />
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="control-label">Группа</label>
+                            <input
+                                    type="text"
+                                    id="nameGroup"
+                                    name="nameGroup"
+                                    class="form-control"
+                                    placeholder="Введите группу"
+                            />
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="control-label">Имя куратора</label>
+                            <input
+                                    type="text"
+                                    id="curatorName"
+                                    name="curatorName"
+                                    class="form-control"
+                                    placeholder="Введите имя куратора"
+                            />
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="control-label">Фамилия куратора</label>
+                            <input
+                                    type="text"
+                                    id="curatorSurname"
+                                    name="curatorSurname"
+                                    class="form-control"
+                                    placeholder="Введите фамилию куратора"
+                            />
+                        </div>
+                        <div class="form-group mb-3">
+                            <button type="submit" class="btn btn-primary rounded-pill px-3" >Добавить</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

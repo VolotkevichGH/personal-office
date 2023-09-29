@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Админ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+</head>
+<body>
+<h1 class="text-center">Панель администратора</h1><br><br>
+<form action="/admin/addstudents">
+    <button type="submit">Добавить пользователей</button><br><br><br>
+</form>
+<table border="3" cellpadding="10" cellspacing="10">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Логин</th>
+        <th>Почта</th>
+        <th>Роль</th>
+    </tr>
+    </thead>
+    <tr>
+    <tbody th:each="el : ${users}">
+    </tr>
+    <tr>
+    <td th:text="${el.id}"/>
+    <td th:text="${el.username}"/>
+    <td th:text="${el.email}"/>
+    <div th:each="role : ${el.roles}">
+        <td th:text="${role.name}"/>
+    </div>
+    <td>
+        <form th:action="'/admin/giveadmin/' + ${el.id}" method="post" />
+        <input   type="submit" name="action" value="Назначить админом" />
+        </form>
+    </td>
+    <td>
+        <form th:action="'/admin/givecur/' + ${el.id}" method="get" />
+        <input   type="submit" name="action" value="Назначить куратором" />
+        </form>
+    </td>
+    <td>
+        <form th:action="'/admin/givestudent/' + ${el.id}" method="get" />
+        <input   type="submit" name="action" value="Назначить студентом" />
+        </form>
+    </td>
+    <td>
+        <form th:action="'/admin/delete/' + ${el.id}" method="post" />
+        <input   type="submit" name="action" value="Удалить аккаунт" />
+        </form>
+    </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
