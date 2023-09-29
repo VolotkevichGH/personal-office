@@ -20,40 +20,40 @@ ___
 ## Data scheme
 
 Login
-![login](https://imgur.com/YWUsvYl)
+![login](https://i.imgur.com/YWUsvYl.png)
 
 Student Profile
 Отображение данных студента и ссылка на редактирование профиля
-![profilestudent](https://imgur.com/YWUsvYl)
+![profilestudent](https://i.imgur.com/rllZAqj.png)
 
 Student Edit
 Редактирование профиля
-![edit](https://imgur.com/EUYmxgM)
+![edit](https://i.imgur.com/EUYmxgM.png)
 
 Curator Profile
 Отображение всех студентов группы куриррования, редактирование профиля.
-![curatorprofile](https://imgur.com/LPHybpb)
+![curatorprofile](https://i.imgur.com/LPHybpb.png)
 
 Admin
 Отображение всех пользователей сайта, некоторая их информация, также редактирование их ролей и удаление аккаунта.
 Ссылка на создание аккаунтов для списка студентов.
-![admin](https://imgur.com/pCKbPET)
+![admin](https://i.imgur.com/pCKbPET.png)
 
 Admin add student
 Добавление списка студентов в формате: Имя Фамилия, Имя Фамилия, Имя Фамилия, Имя Фамилия...
-![adminaddstudent](https://imgur.com/sJOX2hN)
+![adminaddstudent](https://i.imgur.com/sJOX2hN.png)
 
 Admin students data
 После создания аккаунтов студентов, автоматически генерируются логин и пароль для каждого студента, для дальнейшей рассылки пользователям.
-![adminstudensdata](https://imgur.com/GEKyKLf)
+![adminstudensdata](https://i.imgur.com/GEKyKLf.png)
 
 Admin Give Curator
 Добавление пользователю роли куратора и заполнение некоторых данных.
-![admingivecurator](https://imgur.com/vuwk01Z)
+![admingivecurator](https://i.imgur.com/vuwk01Z.png)
 
 Admin Give Student
 Добавление пользователю роли студента и заполнение данных.
-![admingivestudent](https://imgur.com/KuN26YI)
+![admingivestudent](https://i.imgur.com/KuN26YI.png)
 
 ___
 
