@@ -62,14 +62,14 @@ ___
 ###LOGIN
 
 | Task | Method | Resource | Request Parameters |
-|:----:|:------:|:--------:|:------------------:|
+|:----:|:------:|:--------:|:-------:|
 | Авторизация | GET | http://localhost:8080/login | |
 
 
 ###Student
 
 | Task | Method | Resource | Request Parameters |
-|:----:|:------:|:--------:|:------------------:|
+|:----:|:------:|:--------:|:-------:|
 | Личный профиль студента | GET | http://localhost:8080/student/profile | {"user": user} |
 | Редактирование профиля | GET | http://localhost:8080/student/edit | {"user": user} |
 | Редактирование профиля | POST | http://localhost:8080/student/edit | {"username":string, "email":string, "oldpassword":string, "password":string} |
@@ -78,7 +78,7 @@ ___
 ###Curator
 
 | Task | Method | Resource | Request Parameters |
-|:----:|:------:|:--------:|:------------------:|
+|:----:|:------:|:--------:|:-------:|
 | Личный профиль куратора | GET | http://localhost:8080/curator/profile | Авторизовать пользователя, Список&усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;lt;Пользователь> |
 | Редактирование профиля | GET | http://localhost:8080/curator/edit | {"userID":number} |
 | Редактирование профиля | POST | http://localhost:8080/curator/edit | {"username":string, "email":string, "oldpassword":string, "password":string} |
@@ -87,7 +87,7 @@ ___
 ###Administration
 
 | Task | Method | Resource | Request Parameters |
-|:----:|:------:|:--------:|:------------------:|
+|:----:|:------:|:--------:|:-------:|
 | Админ панель | GET | http://localhost:8080/admin | {"пользователей": Список&усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;усилитель;lt;Пользователь>} |
 | Добавление админа | POST | http://localhost:8080/admin/giveadmin/{user} | {"userID": number} |
 | Добавление 1 студента | GET | http://localhost:8080/admin/givestudent/{user} | {"userID": number, "studentname": string, "studentsurname": string} |
