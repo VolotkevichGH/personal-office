@@ -12,7 +12,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 @Table(name = "teachers")
-public class Teacher extends User{
+public class Teacher{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

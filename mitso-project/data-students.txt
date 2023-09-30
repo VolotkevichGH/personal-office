@@ -1,0 +1,2 @@
+[login: "student-YDLX". Password: "$2a$10$ZdKOCEr1P.8mnfhbRk3UG.MM0f/2mPHNB6agRrTrg04ax9faxNAiq". 
+]

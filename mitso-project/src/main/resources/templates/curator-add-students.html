@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Куратор</title>
+</head>
+<body>
+<table border="3" cellpadding="10" cellspacing="0">
+  <title>Список студентов</title>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Имя</th>
+    <th>Фамилия</th>
+    <th>Роль</th>
+    <th>Действие</th>
+  </tr>
+  </thead>
+  <tr>
+    <tbody th:each="el : ${userList}">
+  </tr>
+  <tr>
+    <td th:text="${el.id}"/>
+    <td th:text="${el.name}"/>
+    <td th:text="${el.surname}"/>
+    <div th:each="role : ${el.roles}">
+      <td th:text="${role.name}"/>
+    </div>
+
+    <td>
+      <form th:action="'/curator/addGroupStudent/' + ${el.id}" method="post">
+      <input   type="submit" name="action" value="Добавить"/>
+      </form>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<form action="/curator/allstudents" method="post">
+  <button>На главную</button>
+</form>
+</body>
+</html>

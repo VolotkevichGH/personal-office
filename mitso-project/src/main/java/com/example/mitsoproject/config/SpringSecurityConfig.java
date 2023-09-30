@@ -30,8 +30,8 @@ public class SpringSecurityConfig {
                 .permitAll().requestMatchers("/abit/**").hasRole("USER")
                 .requestMatchers("/student/**").hasRole("STUDENT")
                 .requestMatchers("/curator/**").hasRole("CURATOR")
-                .requestMatchers("/admin/**").hasRole("ADMIN")
-                .anyRequest().hasRole("ADMIN");
+//                        .anyRequest().permitAll();
+                .requestMatchers("/admin/**").hasRole("ADMIN");
         http.formLogin(
                         form -> form
                                 .loginPage("/login")
