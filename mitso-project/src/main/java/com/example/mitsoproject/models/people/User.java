@@ -29,21 +29,10 @@ public class User {
     private String email;
     @Column(nullable = false)
     private String password;
-
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
-    @Column(name = "cur_nm")
-    private String curatorName;
-    @Column(name = "cur_srnm")
-    private String curatorSurname;
-    private String course;
-    private String faculty;
-    private String specialization;
-    private String nameGroupe;
-    private String lesson;
-
     public User(String name, String surname, String username, String email, String password) {
         this.name = name;
         this.username = username;
