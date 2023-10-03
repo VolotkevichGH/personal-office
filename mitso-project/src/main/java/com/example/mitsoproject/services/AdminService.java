@@ -239,6 +239,7 @@ public class AdminService {
         Decanat decanat = new Decanat();
         decanat.setFaculty(faculty);
         decanat.setUser(user);
+        facultyRepository.save(faculty);
         faculty.setDecanat(decanat);
         facultyRepository.save(faculty);
         decanatRepository.save(decanat);
