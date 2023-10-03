@@ -7,6 +7,7 @@ import com.example.mitsoproject.repositories.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.Random;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -239,9 +240,8 @@ public class AdminService {
         Decanat decanat = new Decanat();
         decanat.setFaculty(faculty);
         decanat.setUser(user);
+        Decanat savedDecanat = decanatRepository.save(decanat);
+        faculty.setDecanat(savedDecanat);
         facultyRepository.save(faculty);
-        faculty.setDecanat(decanat);
-        facultyRepository.save(faculty);
-        decanatRepository.save(decanat);
     }
 }
