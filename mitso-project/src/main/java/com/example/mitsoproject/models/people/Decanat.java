@@ -1,8 +1,6 @@
 package com.example.mitsoproject.models.people;
 
 import com.example.mitsoproject.models.data.Faculty;
-import com.example.mitsoproject.models.data.Group;
-import com.example.mitsoproject.models.data.Specialization;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,13 +12,15 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "students")
-public class Student{
+@Table(name = "decanat")
+public class Decanat{
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne
-    private Group group;
+    @OneToOne
+    private Faculty faculty;
     @OneToOne
     private User user;
+
 }

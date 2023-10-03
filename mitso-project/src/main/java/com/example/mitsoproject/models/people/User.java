@@ -1,6 +1,6 @@
 package com.example.mitsoproject.models.people;
 
-import com.example.mitsoproject.models.Role;
+import com.example.mitsoproject.models.data.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

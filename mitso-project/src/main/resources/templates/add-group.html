@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-center">Добавление группы</h2>
+                </div>
+                <div class="card-body">
+                    <form
+                            method="post"
+                            role="form"
+                            action="/decanat/add/group"
+                            class="form-horizontal"
+                    >
+                        <div class="form-group mb-3">
+                            <label class="control-label">Название</label>
+                            <input
+                                    type="text"
+                                    id="nane"
+                                    name="name"
+                                    class="form-control"
+                                    placeholder="Введите название"
+                            />
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="control-label">Курс</label>
+                            <input
+                                    type="text"
+                                    id="course"
+                                    name="course"
+                                    class="form-control"
+                                    placeholder="Введите курс"
+                            />
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="control-label">Специальность</label>
+                            <input
+                                    type="text"
+                                    id="specName"
+                                    name="specName"
+                                    class="form-control"
+                                    placeholder="Введите специальность"
+                            />
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="control-label">Имя Куратора</label>
+                            <input
+                                    type="text"
+                                    id="curatorName"
+                                    name="curatorName"
+                                    class="form-control"
+                                    value=""
+                                    placeholder="Введите имя куратора"
+                            />
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="control-label">Фамилия Куратора</label>
+                            <input
+                                    type="text"
+                                    id="curatorSurname"
+                                    name="curatorSurname"
+                                    class="form-control"
+                                    value=""
+                                    placeholder="Введите фамилию куратора"
+                            />
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <textarea name="students" cols="80" rows="10" placeholder="Пример: Всеволод Волоткевич, Максим Калинин и тд"></textarea>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <button type="submit" class="btn btn-primary rounded-pill px-3" >Добавить группу</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

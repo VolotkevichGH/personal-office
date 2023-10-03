@@ -15,6 +15,9 @@
 <form action="/admin/addstudents">
     <button type="submit">Добавить пользователей</button><br><br><br>
 </form>
+<form action="/admin/addfaculty">
+    <button type="submit">Добавить Факультет</button><br><br><br>
+</form>
 <table border="3" cellpadding="10" cellspacing="10">
     <thead>
     <tr>
@@ -39,6 +42,11 @@
         <input   type="submit" name="action" value="Назначить админом" />
         </form>
     </td>
+        <td>
+            <form th:action="'/admin/givedecan/' + ${el.id}" method="get" />
+            <input   type="submit" name="action" value="Сделать деканатом" />
+            </form>
+        </td>
     <td>
         <form th:action="'/admin/givecur/' + ${el.id}" method="get" />
         <input   type="submit" name="action" value="Назначить куратором" />
@@ -49,6 +57,11 @@
         <input   type="submit" name="action" value="Назначить студентом" />
         </form>
     </td>
+        <td>
+            <form th:action="'/admin/giveteacher/' + ${el.id}" method="get" />
+            <input   type="submit" name="action" value="Назначить преподавателем" />
+            </form>
+        </td>
     <td>
         <form th:action="'/admin/delete/' + ${el.id}" method="post" />
         <input   type="submit" name="action" value="Удалить аккаунт" />

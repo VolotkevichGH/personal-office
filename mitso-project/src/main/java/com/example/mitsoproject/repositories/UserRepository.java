@@ -1,6 +1,6 @@
 package com.example.mitsoproject.repositories;
 
-import com.example.mitsoproject.models.Role;
+import com.example.mitsoproject.models.data.Role;
 import com.example.mitsoproject.models.people.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -20,4 +20,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     List<User> findAllByRoles(Role roles);
 
+    Optional<User> findByName(String name);
+    Optional<User> findBySurname(String surname);
 }

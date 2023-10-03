@@ -1,23 +1,19 @@
-package com.example.mitsoproject.models.people;
+package com.example.mitsoproject.models.data;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Setter
-@Getter
+@Entity
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "admins")
-public class Admin{
+@Table(name = "data_students")
+
+public class DataStudents {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @OneToOne
-    private User user;
-
+    private String data;
 }

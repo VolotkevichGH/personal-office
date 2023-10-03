@@ -18,25 +18,15 @@ public class CuratorService {
     private final StudentsRepository studentsRepository;
     private final AdminRepository adminRepository;
 
-    public void addStudentInGroup(Student student, Curator curator) {
-        student.setCurator(curator);
-        student.setCourse(curator.getCourse());
-        student.setNameGroupe(curator.getNameGroupe());
-        student.setFaculty(curator.getFaculty());
-        student.setSpecialization(curator.getSpecialization());
-        curator.getStudent().add(student);
-        curatorRepository.save(curator);
-        studentsRepository.save(student);
-    }
 
     public void deleteFromGroup(Student student, Curator curator){
-        student.setCurator(null);
-        student.setFaculty("");
-        student.setSpecialization("");
-        student.setCourse("");
-        student.setNameGroupe("");
+        student.getGroup().setCurator(null);
+        student.getGroup().getSpecialization().setFaculty(null);
+        student.getGroup().setSpecialization(null);
+        student.getGroup().setCourse("");
+        student.getGroup().setCurator(null);
         studentsRepository.save(student);
-        curator.getStudent().remove(student);
+        curator.getGroup().getStudents().remove(student);
         curatorRepository.save(curator);
     }
 }

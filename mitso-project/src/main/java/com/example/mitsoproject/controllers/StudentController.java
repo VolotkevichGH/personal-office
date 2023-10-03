@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDate;
+
 @Controller
 @RequiredArgsConstructor
 public class StudentController {
@@ -52,6 +54,14 @@ public class StudentController {
         String studentName = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userRepository.findByUsername(studentName).get();
         model.addAttribute("user", user);
+        String dayOfWeek = LocalDate.now().getDayOfWeek().name();
+        int day = LocalDate.now().getDayOfMonth();
+        int month = LocalDate.now().getMonthValue();
+        int year = LocalDate.now().getYear();
+        model.addAttribute("dayOfWeek", dayOfWeek);
+        model.addAttribute("day", day);
+        model.addAttribute("month", month);
+        model.addAttribute("year", year);
         return "student";
     }
 

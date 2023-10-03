@@ -1,7 +1,10 @@
 package com.example.mitsoproject.models.people;
 
 
-import com.example.mitsoproject.models.Role;
+import com.example.mitsoproject.models.data.Faculty;
+import com.example.mitsoproject.models.data.Group;
+import com.example.mitsoproject.models.data.Lesson;
+import com.example.mitsoproject.models.data.Specialization;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,16 +21,8 @@ public class Curator{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String course;
-    private String faculty;
-    private String specialization;
-    private String nameGroupe;
-    private String lesson;
+    @OneToOne
+    private Group group;
     @OneToOne
     private User user;
-    @OneToMany
-    @ElementCollection(targetClass = Student.class, fetch = FetchType.EAGER)
-    @CollectionTable(name = "curator_students", joinColumns = @JoinColumn(name = "curator_id"))
-    private Set<Student> student;
-
 }

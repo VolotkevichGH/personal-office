@@ -1,0 +1,13 @@
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student</title>
+</head>
+<body>
+<h1 class="text-center"> Личный кабинет</h1>
+<h2 th:text="${user.name}"/>
+<form action="/decanat/add/group"/>
+<button>Добавить группу</button>
+</body>
+</html>

@@ -1,8 +1,7 @@
 package com.example.mitsoproject.controllers;
 
-import com.example.mitsoproject.models.people.Admin;
-import com.example.mitsoproject.models.people.Student;
-import com.example.mitsoproject.models.people.User;
+import com.example.mitsoproject.models.data.*;
+import com.example.mitsoproject.models.people.*;
 import com.example.mitsoproject.repositories.*;
 import com.example.mitsoproject.services.AdminService;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Set;
 
 
 @Controller
@@ -25,6 +25,8 @@ public class AdminController {
     private final StudentsRepository studentsRepository;
     private final AdminRepository adminRepository;
     private final CuratorRepository curatorRepository;
+    private final TeacherRepository teacherRepository;
+    private final FacultyRepository facultyRepository;
 
     @GetMapping("/admin")
     public String admin(Model model) {
@@ -33,8 +35,38 @@ public class AdminController {
     }
 
     @PostMapping("/admin/giveadmin/{user}")
-    public String adminPost(@PathVariable Admin user) {
+    public String adminPost(@PathVariable User user) {
         adminService.addAdmin(user);
+        return "redirect:/admin";
+    }
+
+    @GetMapping("/admin/givedecan/{user}")
+    public String decan(Model model, @PathVariable User user) {
+        model.addAttribute("user", user);
+        return "add-decan";
+    }
+
+    @GetMapping("/admin/addfaculty")
+    public String addFaculty(Model model) {
+        return "add-faculty";
+    }
+
+    @PostMapping("/admin/addfaculty")
+    public String addFacultyPost(Model model, String facultyName) {
+        Faculty faculty = new Faculty();
+        faculty.setName(facultyName);
+        facultyRepository.save(faculty);
+        return "redirect:/admin";
+    }
+
+
+    @PostMapping("/admin/givedecan/{user}")
+    public String decanPost(@PathVariable User user, @RequestParam String facultyName) {
+        boolean hasfaculty = facultyRepository.findByName(facultyName).isPresent();
+        Faculty faculty = facultyRepository.findByName(facultyName).get();
+        if (hasfaculty) {
+            adminService.addDecan(user, faculty);
+        }
         return "redirect:/admin";
     }
 
@@ -48,9 +80,9 @@ public class AdminController {
 
     @PostMapping("/admin/givestudent/{student}")
     public String setStudentPost(@PathVariable Student student, @RequestParam String course,
-                                 @RequestParam String faculty, @RequestParam String specialization,
-                                 @RequestParam String nameGroup) {
-        adminService.addStudent(student,course,faculty,specialization,nameGroup);
+                                 @RequestParam Faculty faculty, @RequestParam Specialization specialization,
+                                 @RequestParam Group nameGroup) {
+        adminService.addStudent(student, course, faculty, specialization, nameGroup);
 
         return "redirect:/admin";
     }
@@ -63,14 +95,14 @@ public class AdminController {
     }
 
     @PostMapping("/admin/givecur/{user}")
-    public String addCuratorPost(@PathVariable User user, @RequestParam String nameGroup, @RequestParam String faculty, @RequestParam String lesson, @RequestParam String course, @RequestParam String specialization) {
-       adminService.addCurator(user, faculty,nameGroup,course,lesson,specialization);
+    public String addCuratorPost(@PathVariable User user, @RequestParam Group nameGroup, @RequestParam Specialization specialization) {
+        adminService.addCurator(user, nameGroup);
         return "redirect:/admin";
     }
 
     @PostMapping("/admin/delete/{user}")
-    public String userPost(@PathVariable User user) {
-        userRepository.delete(user);
+    public String deleteUserPost(@PathVariable User user) {
+        adminService.deleteAccount(user);
         return "redirect:/admin";
     }
 
@@ -83,10 +115,15 @@ public class AdminController {
     public String addStudentsPost(Model model, @RequestParam String students) {
         String[] studentsMassive = students.split(", ");
         for (String studentWithoutMassive : studentsMassive) {
+            User user = new User();
+            Student student = new Student();
             String[] massiveByOneStudent = studentWithoutMassive.split(" ");
             String name = massiveByOneStudent[0];
             String surname = massiveByOneStudent[1];
-            adminService.addAccount(name,surname);
+            adminService.addAccount(name, surname, user, student);
+            student.getUser().setRoles(Set.of(Role.ROLE_STUDENT));
+            userRepository.save(user);
+            studentsRepository.save(student);
         }
         return "redirect:/admin/students/data";
     }
@@ -101,6 +138,18 @@ public class AdminController {
     public String getData(Model model) {
         model.addAttribute("data", builder.findAll());
         return "data-students";
+    }
+
+    @GetMapping("/admin/giveteacher/{user}")
+    public String addTeacher(@PathVariable User user, Model model) {
+        model.addAttribute("user", user);
+        return "set-teacher";
+    }
+
+    @PostMapping("/admin/giveteacher/{user}")
+    public String addTeacherPost(@PathVariable User user, @RequestParam Faculty faculty, @RequestParam Lesson lesson) {
+        adminService.addTeacher(user, faculty, lesson);
+        return "redirect:/admin";
     }
 
 }
